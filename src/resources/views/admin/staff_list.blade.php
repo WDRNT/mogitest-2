@@ -30,7 +30,7 @@
             </td>
 
             <td>
-                <a href="/stamp_correction_request/approve/{{ $user->id }}">詳細</a>
+                <a href="/admin/attendance/staff/{{ $user->id }}">詳細</a>
             </td>
         </tr>
         @endforeach

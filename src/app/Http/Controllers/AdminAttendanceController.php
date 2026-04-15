@@ -133,4 +133,54 @@ class AdminAttendanceController extends Controller
         ));
 
     }
+
+    public function exportCsv(Request $request)
+    {
+        $currentMonth = $request->input('month', now()->format('Y-m'));
+        $current = Carbon::parse($currentMonth);
+
+        $start = $current->copy()->startOfMonth();
+        $end   = $current->copy()->endOfMonth();
+
+        $attendances = Attendance::with(['breaks', 'user'])
+            ->whereBetween('work_date', [$start, $end])
+            ->orderBy('work_date')
+            ->get();
+
+        $fileName = 'attendance_' . $current->format('Y_m') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename={$fileName}",
+        ];
+
+        $callback = function () use ($attendances) {
+            $handle = fopen('php://output', 'w');
+
+            // BOM（Excel対策）
+            fwrite($handle, "\xEF\xBB\xBF");
+
+            // ヘッダー
+            fputcsv($handle, ['名前', '日付', '出勤', '退勤', '休憩', '合計']);
+
+            foreach ($attendances as $attendance) {
+                fputcsv($handle, [
+                    $attendance->user->name ?? '',
+                    Carbon::parse($attendance->work_date)->format('Y-m-d'),
+                    $attendance->clock_in
+                        ? Carbon::parse($attendance->clock_in)->format('H:i')
+                        : '',
+                    $attendance->clock_out
+                        ? Carbon::parse($attendance->clock_out)->format('H:i')
+                        : '',
+                    $attendance->total_break_time ?? '',
+                    $attendance->work_time ?? '',
+                ]);
+            }
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }

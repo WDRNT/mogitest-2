@@ -55,10 +55,13 @@ Route::get('/admin/login', function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/attendance/list',[AdminAttendanceController::class, 'index']);
 
+    Route::get('/attendance/csv',[AdminAttendanceController::class, 'exportCsv']);
+
     Route::get('/attendance/{id}',[AdminAttendanceController::class, 'edit']);
     Route::post('/attendance/{id}',[AdminAttendanceController::class, 'update']);
 
     Route::get('/staff/list',[AdminAttendanceController::class, 'staff_list']);
 
     Route::get('/attendance/staff/{id}',[AdminAttendanceController::class, 'show']);
+
 });

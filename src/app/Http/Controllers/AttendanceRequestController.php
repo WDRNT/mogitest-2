@@ -84,7 +84,7 @@ class AttendanceRequestController extends Controller
     public function edit($id)
     {
         $attendanceRequest = AttendanceRequest::with('breaks', 'attendance')
-            ->find($id);
+            ->findOrFail($id);
 
 
 

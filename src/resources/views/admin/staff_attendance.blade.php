@@ -67,7 +67,7 @@
 
                 <td>
                 @if ($date['attendance'])
-                    <a href="/attendance/detail/{{ $date['attendance']->id }}">詳細</a>
+                    <a href="/admin/attendance/{{ $date['attendance']->id }}">詳細</a>
                 @else
                     詳細
                 @endif
@@ -78,6 +78,7 @@
 
     </tbody>
 </table>
+<a href="/admin/attendance/csv?month={{ $current->format('Y-m') }}">CSV出力</a>
 </div>
 
 
