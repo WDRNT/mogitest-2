@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.table-small{
+    text-align: center;
+}
+
+.table-small td{
+    height: 33px;
+}
+
+.table-big td{
+    height: 90px;
+}

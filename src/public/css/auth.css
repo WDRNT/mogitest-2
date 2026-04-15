@@ -1,0 +1,36 @@
+.layout {
+    width: 680px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.input-text input {
+    width: 100%;
+    height: 45px;
+    border: solid 1px #5F5F5F;
+    margin-bottom: 20px;
+}
+
+.auth-button {
+    width: 100%;
+    height: 60px;
+    background-color: #000000;
+    border: none;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.link-center {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}

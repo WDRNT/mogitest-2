@@ -1,0 +1,29 @@
+.text-center{
+    text-align: center;
+}
+
+.button{
+    width: 221px;
+    height: 77px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    font-size: 32px;
+}
+
+.button-white{
+    background-color: white;
+}
+
+.button-black {
+    background-color: black;
+    color: white;
+}
+
+.button-content{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+

@@ -1,0 +1,8 @@
+h2{
+    background-color: white;
+    border-radius: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
