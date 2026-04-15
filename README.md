@@ -4,12 +4,12 @@ coachtech勤怠管理アプリ
 
 ## 環境構築
 
-git clone git@github.com:WDRNT/mogitest-2.git
-cp .env.example .env
-docker-compose up -d --build
-docker-compose exec php bash
-composer install
-php artisan key:generate
+git clone git@github.com:WDRNT/mogitest-2.git<br>
+cp .env.example .env<br>
+docker-compose up -d --build<br>
+docker-compose exec php bash<br>
+composer install<br>
+php artisan key:generate<br>
 php artisan migrate --seed
 
 ## 使用技術
