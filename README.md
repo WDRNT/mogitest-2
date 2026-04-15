@@ -11,7 +11,6 @@ docker-compose exec php bash
 composer install
 php artisan key:generate
 php artisan migrate --seed
-php artisan storage:link
 
 ## 使用技術
 

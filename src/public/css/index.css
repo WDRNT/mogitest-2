@@ -7,8 +7,6 @@
     height: 77px;
     border: none;
     border-radius: 20px;
-    display: block;
-    margin: 0 auto;
     font-size: 32px;
 }
 
@@ -21,7 +19,7 @@
     color: white;
 }
 
-.button-content{
+.button-flex{
     display: flex;
     justify-content: center;
     gap: 50px;

@@ -21,7 +21,7 @@
 
     {{-- 出勤中 --}}
     @if($status === 'working')
-    <div class="button-content">
+    <div class="button-flex">
         <form method="POST" action="/attendance">
             @csrf
             <button class="button button-white" type="submit" name="action" value="break_in">休憩入</button>
@@ -46,7 +46,7 @@
 
     {{-- 退勤済 --}}
     @if($status === 'done')
-    <p>お疲れ様でした。</p>
+    <p class="text-center">お疲れ様でした。</p>
     @endif
 </div>
 
